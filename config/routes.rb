@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  
+  get '/author/:id', to: 'author#show'
   get '/gossip/:id', to: 'gossip#show'
   get '/gossip', to: 'landing#page'
   get '/', to: 'landing#page'
