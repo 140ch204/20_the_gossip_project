@@ -1,24 +1,27 @@
-# README
+<h1> The Gossip Project </h1>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<h2> THP 28/10/2019 </h2>
 
-Things you may want to cover:
+1. Installation : 
 
-* Ruby version
+> git clone https://github.com/140ch204/20_the_gossip_project.git
+>
+> cd 20_the_gossip_project
+>
+> bundle install
+> 
+> rails:migrate
+> 
+> rails:seed
+>
+> rails s
 
-* System dependencies
+Dans le navigateur lancer : 
 
-* Configuration
+http://localhost:3000/
 
-* Database creation
+2. Application
 
-* Database initialization
+Application Ruby on Rails avec une base de donnée PostGre
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

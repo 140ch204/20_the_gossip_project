@@ -1,6 +1,4 @@
-<h1 class="font-weight-light">Bienvenue dans le monde des Gossips</h1>
-
-<h2 class="font-weight-light">Les derniers potins :</h2>
+<h1 class="my-4" style="text-align: center">Bienvenue dans le monde des Gossips</h1>
 
 <!-- Page Content -->
     <div class="container">
@@ -13,7 +11,7 @@
       <!-- Project One -->
       <div class="row">
         <div class="col-md-7">
-          <a href="#">
+          <a href="/gossip/<%= one_gossip.id  %>" >
             <img class="img-fluid rounded mb-3 mb-md-0" src=<%= @img_array.sample %> alt="">
           </a>
         </div>
@@ -23,6 +21,7 @@
           <a class="btn btn-primary" href="/gossip/<%= one_gossip.id  %>">En savoir plus</a>
         </div>
       </div>
+      
       <!-- /.row -->
 
       <hr>

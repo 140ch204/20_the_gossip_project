@@ -1,13 +1,31 @@
-<h1 class="font-weight-light">La page des contacts !</h1>
+<h1 class="my-4" style="text-align: center" >Contactez nous !</h1>
 <br>
-<p class="lead">En cas de soucis </p><br>
-<p class="lead">et seulement en cas de soucis</p><br>
-<br>
-<br>
-<br>
-<p class="lead">Merci de chercher sur Google  quand même</p>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9 col-lg-8 mx-auto">
 
+        <form>
+          <div class="form-label-group">
+            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+            <label for="inputEmail">Email address</label>
+          </div>
 
-<div style="height: 700px"></div>
-<p class="lead mb-0"> </p>
+          <div class="form-label-group">
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+            <label for="inputPassword">Password</label>
+          </div>
 
+          <div class="custom-control custom-checkbox mb-3">
+            <input type="checkbox" class="custom-control-input" id="customCheck1">
+            <label class="custom-control-label" for="customCheck1">Remember password</label>
+          </div>
+          <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Sign in</button>
+          <div class="text-center">
+            <a class="small" href="#">Forgot password?</a></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div style="height: 300px"></div>
+  <p class="lead mb-0"> </p>
