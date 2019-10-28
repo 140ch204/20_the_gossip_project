@@ -2,13 +2,7 @@
 
 <h2 class="font-weight-light">Les derniers potins :</h2>
 
-<% @gossip_array.each do |one_gossip| %><br>
-<b> <%= one_gossip.title  %> </b> <br>
+<% @gossip_array.each do |one_gossip| %><br> 
+<b> <a href="/gossip/<%= one_gossip.id  %>"><%= one_gossip.title  %> </a> </b> <br>
 <%= one_gossip.content  %> <br>
 <% end %>
-
-La page d'accueil doit souhaiter la bienvenue au visiteur, 
-puis afficher les potins que l'on a en base, en n'affichant que leur : 
-author.first_name, et 
-leur title. 
-Évidemment, un lien vers la page d'accueil doit être mis dans le header de l'application.
