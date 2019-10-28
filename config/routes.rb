@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  get '/', to: 'landing#page'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/welcome/:first_name', to: 'welcome#user'
   get '/contact', to: 'static_pages#contact'
