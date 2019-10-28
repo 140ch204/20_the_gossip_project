@@ -10,18 +10,34 @@
 >
 > bundle install
 > 
-> rails:migrate
+> rails db:migrate
 > 
-> rails:seed
+> rails db:seed
 >
 > rails s
+>
 
-Dans le navigateur lancer : 
+Dans le navigateur aller à l'URL suivante : 
 
 http://localhost:3000/
 
-2. Application
+Enjoy !
 
-Application Ruby on Rails avec une base de donnée PostGre
+2. Connaître les versions utilisées : 
+
+>
+> rails about
+>
+
+
+3. Application
+
+Composants utilisés
+
+- FrameWork : Ruby on Rails
+
+- base de donnée : PostGre 
+
+- HTML/CSS : Bootstrap
 
 
