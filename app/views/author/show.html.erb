@@ -7,4 +7,5 @@
 <%= @author.age %><br>
 <br>
 <h2>Le contacter</h2>
-<%= @author.email %><br>
+<a href="mailto:#{<%= @author.email %>}"> <%= @author.email %> </a><br>
+
