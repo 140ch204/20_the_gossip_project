@@ -1,6 +1,14 @@
-<h1>Bienvenu dans le monde des Gossips</h1>
+<h1 class="font-weight-light">Bienvenue dans le monde des Gossips</h1>
 
+<h2 class="font-weight-light">Les derniers potins :</h2>
 
-<p> hello ! </p>
+<% @gossip_array.each do |one_gossip| %><br>
+<b> <%= one_gossip.title  %> </b> <br>
+<%= one_gossip.content  %> <br>
+<% end %>
 
-<%= @gossip %>
+La page d'accueil doit souhaiter la bienvenue au visiteur, 
+puis afficher les potins que l'on a en base, en n'affichant que leur : 
+author.first_name, et 
+leur title. 
+Évidemment, un lien vers la page d'accueil doit être mis dans le header de l'application.

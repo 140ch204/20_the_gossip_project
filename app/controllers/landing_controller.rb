@@ -1,10 +1,7 @@
 class LandingController < ApplicationController
   def page
 
-    @gossip = Gossip.all
+    @gossip_array = Gossip.all
   end
-
-
-
 
 end
