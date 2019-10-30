@@ -1,9 +1,13 @@
 <h1 class="my-4" style="text-align: center"><%= @gossip.title %></h1>
 
+
 <br>
 <h2> Contenu </h2><br>
 <p> <%= @gossip.content %> </p>
 
+<a class="btn btn-primary" <%= link_to "Editer", edit_gossip_path(@gossip.id)%></a>
+
+<br>
 <br>
 
 <h2> Auteur </h2><br>

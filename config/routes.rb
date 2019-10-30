@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :gossip, except: [:destroy] 
+  resources :gossip 
   resources :author
   resources :welcome, only: [:index, :show]
   resources :city, only: [:show]

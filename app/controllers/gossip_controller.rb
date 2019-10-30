@@ -18,7 +18,7 @@ class GossipController < ApplicationController
     puts "mes params = ", params
 
     if @gossip.save
-      @gossip_array = Gossip.all
+      @gossips = Gossip.all
       render 'index'
     else
       @gossip.destroy
@@ -29,28 +29,44 @@ class GossipController < ApplicationController
 
   def show
     # Méthode qui récupère le potin concerné et l'envoie à la view show (show.html.erb) pour affichage
-    @gossip = Gossip.all[params[:id].to_i]
+    puts params
+    print params[:id]
+    puts
+    print params[:id].to_i
+    @gossip = Gossip.find(params[:id])
     @author = User.find(@gossip.user_id)
     @city = City.find(@author.city_id)
   end
 
   def index
     # Méthode qui récupère tous les potins et les envoie à la view index (index.html.erb) pour affichage
-    @gossip_array = Gossip.all
+    @gossips = Gossip.all
     @user = User.all
-
-    
 
   end
 
   def edit
     # Méthode qui récupère le potin concerné et l'envoie à la view edit (edit.html.erb) pour affichage dans un formulaire d'édition
+    puts params[:id]
+    puts params[:id].to_i
+    @gossip = Gossip.find(params[:id])
+    @author = User.find(@gossip.user_id)
+    @city = City.find(@author.city_id)
+    puts @gossip, @author, @city
+    puts params
   end
 
   def update
     # Méthode qui met à jour le potin à partir du contenu du formulaire de edit.html.erb, soumis par l'utilisateur
     # pour info, le contenu de ce formulaire sera accessible dans le hash params
     # Une fois la modification faite, on redirige généralement vers la méthode show (pour afficher le potin modifié)
+    
+    @gossip = Gossip.find(params[:id])
+    if @gossip.update(title: params[:gossip_title], content: params[:gossip_content])
+      redirect_to @gossip
+    else
+      render :edit
+    end
   end
 
   def destroy
