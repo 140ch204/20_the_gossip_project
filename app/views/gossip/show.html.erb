@@ -6,6 +6,12 @@
 <p> <%= @gossip.content %> </p>
 
 <a class="btn btn-primary" <%= link_to "Editer", edit_gossip_path(@gossip.id)%></a>
+<br>
+<br>
+
+<%= form_tag gossip_path(@gossip.id), method: "delete" do %>
+  <%= submit_tag "Supprimer", class: 'btn btn-primary'%>
+<% end %>
 
 <br>
 <br>

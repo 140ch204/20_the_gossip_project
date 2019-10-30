@@ -39,4 +39,11 @@
         <br />
 
       <% end %>
+      
+      <div style="text-align: center">
+      <%= form_tag gossip_path(@gossip.id), method: "delete" do %>
+        <%= submit_tag "Supprimer", class: 'btn btn-primary'%>
+      <% end %>
+      </div>
+
     </div>
