@@ -1,0 +1,46 @@
+<h1 class="my-4" style="text-align: center"><%= @city.name %></h1>
+
+<h2> Ville </h2><br>
+<p> <%= @city.name %> </p>
+
+<br>
+
+<h2> Les potins de la ville :</h2><br>
+
+<% img1="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" %>
+<% img2="https://images.unsplash.com/photo-1484863137850-59afcfe05386?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" %>
+<% img3="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" %>
+<% img4="https://images.unsplash.com/photo-1457131760772-7017c6180f05?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" %>
+<% img5="https://images.unsplash.com/photo-1495078065017-564723e7e3e7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" %>
+<% img6="https://images.unsplash.com/photo-1486649567693-aaa9b2e59385?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" %>
+<% img7="https://images.unsplash.com/photo-1506956191951-7a88da4435e5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" %>
+<% img8="https://images.unsplash.com/photo-1489980557514-251d61e3eeb6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" %>
+    
+<% @img_array =[img1,img2,img3,img4,img5,img6,img7,img8] %>
+
+<div class="container">
+  
+    <% @gossip_city.each do |one_gossip| %><br> 
+    
+      <!-- Page Heading -->
+      <h1 class="my-4"></h1>
+
+      <!-- Project One -->
+      <div class="row">
+        <div class="col-md-7">
+          <a>
+            <img class="img-fluid rounded mb-3 mb-md-0" src=<%= @img_array.sample %> alt="">
+          </a>
+        </div>
+        <div class="col-md-5">
+          <h3><%= one_gossip.title  %></h3>
+          <p><%= one_gossip.content  %></p>
+
+          <a class="btn btn-primary" <%= link_to "En savoir plus", gossip_path(one_gossip.id)%></a>
+
+        </div>
+      </div>
+      <!-- /.row -->
+      <br>
+    <% end %>
+</div>
