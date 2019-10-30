@@ -1,11 +1,28 @@
 class StaticPagesController < ApplicationController
 
-  def contact
+  #def contact
 
-  end
+ # end
 
-  def team
+  #def team
     
+  #end
+
+
+  def contactus
+
   end
+
+  def index
+
+  end
+
+  def home
+
+  end
+
+  def bienvenue
+
+  end 
 
 end

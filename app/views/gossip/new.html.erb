@@ -1,0 +1,42 @@
+<h1 class="my-4" style="text-align: center">Soumets ton potin !</h1>
+
+
+
+<% if @gossip !=nil%>
+  <div class="card bg-light text-danger">
+    <% @gossip.errors.each do |attr, msg|  %>
+      <%= msg %><br />
+    <% end %>
+  </div>
+<% end %>
+    <div class="container">
+
+      <%= form_tag url_for(action: 'create'), method: "post" do %>
+        <input type="hidden" name="authenticity_token" value= <%= form_authenticity_token %> >
+        <br />
+        <div class="row justify-content-center align-self-center mx-5">
+          <div class="col-3">
+          <%= label_tag 'Le titre' %>
+          </div>
+          <div class="col-3">
+          <%= text_field_tag 'gossip_title', value = nil, options = {style:"height:30px;width:300px"} %>
+          </div>
+        </div>     
+        <br />
+        <div class="row justify-content-center align-self-center mx-5">
+          <div class="col-3">
+            <%= label_tag 'Dis nous tout' %>
+          </div>
+          <div class="col-3">
+            <%= text_field_tag 'gossip_content', value = nil, options = {style:"height:120px;width:300px;vertical-align:text-top"}%>
+            <br />
+            <br />
+            
+            <%= submit_tag "Valider", class: 'btn btn-primary'  %>
+          </div>
+          
+        </div>
+        <br />
+
+      <% end %>
+    </div>
