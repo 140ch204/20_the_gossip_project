@@ -4,9 +4,16 @@
 <h2>Description</h2> 
 <%= @author.description %><br>
 <br>
+
+<h2>Email</h2>
+<a href="mailto:#{<%= @author.email %>}"> <%= @author.email %> </a><br>
+<br>
+
 <h2>Age</h2>
 <%= @author.age %><br>
 <br>
-<h2>Le contacter</h2>
-<a href="mailto:#{<%= @author.email %>}"> <%= @author.email %> </a><br>
+
+<h2>Ville</h2>
+<%= @city.name %><br>
+<br>
 

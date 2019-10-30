@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :gossip, except: [:destroy] 
   resources :author
   resources :welcome, only: [:index, :show]
+  resources :city, only: [:show]
 
   root 'gossip#index'
   get 'contact', to: 'static_pages#contact'

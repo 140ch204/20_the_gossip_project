@@ -12,6 +12,7 @@ class AuthorController < ApplicationController
     # Méthode qui récupère le potin concerné et l'envoie à la view show (show.html.erb) pour affichage
     @author = User.find(params[:id])
     @gossip = Gossip.all
+    @city = City.find(@author.city_id)
   end
 
   def new
