@@ -29,9 +29,9 @@ class GossipController < ApplicationController
 
   def show
     # Méthode qui récupère le potin concerné et l'envoie à la view show (show.html.erb) pour affichage
-    id_gossip = params[:id].to_i
-    @gossip = Gossip.all[id_gossip]
-    @user = User.all
+    @gossip = Gossip.all[params[:id].to_i]
+    @author = User.find(@gossip.user_id)
+    @city = City.find(@author.city_id)
   end
 
   def index

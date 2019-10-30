@@ -1,8 +1,18 @@
 <h1 class="my-4" style="text-align: center"><%= @gossip.title %></h1>
 
 <br>
-<h2> Le contenu </h2><br>
+<h2> Contenu </h2><br>
 <p> <%= @gossip.content %> </p>
+
+<br>
+
+<h2> Auteur </h2><br>
+<p> <%= @author.first_name %> <%= @author.last_name %> </p>
+
+<br>
+
+<h2> Ville </h2><br>
+<p> <%= @city.name %> </p>
 
 <br>
 
