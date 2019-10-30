@@ -9,14 +9,19 @@
 <h2> Auteur </h2><br>
 <p> <%= @author.first_name %> <%= @author.last_name %> </p>
 
+<a class="btn btn-primary" <%= link_to "Découvrir l'auteur", author_path(@gossip.user_id.to_i) %> </a>
+
+
+<br>
 <br>
 
 <h2> Ville </h2><br>
 <p> <%= @city.name %> </p>
 
+<a class="btn btn-primary" <%= link_to "Découvrir la ville", city_path(@author.city.id) %></a>
+
+<br>
 <br>
 
 <h2> Date de création </h2><br>
 <p> <%= @gossip.created_at %> </p>
-
-<a class="btn btn-primary" href="/author/<%= @gossip.user_id %>">Découvrir l'auteur</a>
