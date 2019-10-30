@@ -36,6 +36,7 @@ class GossipController < ApplicationController
     @gossip = Gossip.find(params[:id])
     @author = User.find(@gossip.user_id)
     @city = City.find(@author.city_id)
+    @comments=@gossip.comments
   end
 
   def index

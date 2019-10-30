@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :gossip 
+  resources :gossip do
+  	resources :comment
+  end
   resources :author
   resources :welcome, only: [:index, :show]
   resources :city, only: [:show]
