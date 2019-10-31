@@ -32,15 +32,27 @@
           </li>
 
           <li>
-            <div class="dropdown">
-              <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                S'enregistrer/Se connecter
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" <%= link_to "S'enregistrer", new_author_path() %></a>
-                <a class="dropdown-item" <%= link_to "Connexion", new_session_path() %></a>
+            <%if logged_in? %>
+              <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <%= current_user.first_name.capitalize %> 
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" <%= link_to "Mon profil", author_path(current_user.id)%></a>
+                  <a class="dropdown-item" <%= link_to "Se déconnecter", session_path(session.id), method: :delete %></a>
+                </div>
               </div>
-            </div>
+            <%else%>    
+              <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  S'enregistrer/Se connecter
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" <%= link_to "S'enregistrer", new_author_path() %></a>
+                  <a class="dropdown-item" <%= link_to "Connexion", new_session_path() %></a>
+                </div>
+              </div>
+            <%end%>
           </li>
         </ul>
 

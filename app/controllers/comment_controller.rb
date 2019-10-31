@@ -1,4 +1,8 @@
 class CommentController < ApplicationController
+  include CommentHelper
+
+  before_action :authenticate_user, except: [:index, :show]
+  before_action :right_user, only: [:edit, :update, :destroy]
 
   def new
     Comment.new
@@ -6,7 +10,7 @@ class CommentController < ApplicationController
 
   def create
     @gossip=Gossip.find(params[:gossip_id])
-    @comment=@gossip.comments.new(content: params[:comment_content], user_id: User.all.sample.id, gossip_id: params[:gossip_id])
+    @comment=@gossip.comments.new(content: params[:comment_content], user_id: current_user.id, gossip_id: params[:gossip_id])
     @user=User.find(@gossip.user_id)
     @comments=@gossip.comments
     if @comment.save
@@ -38,10 +42,10 @@ class CommentController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     @gossip = Gossip.find(params[:gossip_id])
-  @comment = @gossip.comments.find(params[:id])
+    @comment = @gossip.comments.find(params[:id])
     @comment.destroy
     redirect_to gossip_path(@gossip)
   end

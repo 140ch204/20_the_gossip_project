@@ -1,9 +1,8 @@
 class GossipController < ApplicationController
-  #def show
-  #  id_gossip = params[:id].to_i
-  #  @gossip = Gossip.all[id_gossip]
-#
-#  end
+
+  include GossipHelper
+  before_action :authenticate_user, except: [:index, :show]
+  before_action :right_user, only: [:edit, :update, :destroy]
 
   def new
     # Méthode qui crée un potin vide et l'envoie à une view qui affiche le formulaire pour 'le remplir' (new.html.erb)

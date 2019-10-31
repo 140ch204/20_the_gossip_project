@@ -23,7 +23,7 @@ class AuthorController < ApplicationController
       @gossip=Gossip.where(user_id:@user.id)
       @author = @user
       @city = City.find_by(name: params[:city_name])
-      render 'show'
+      redirect_to new_session_path
     else
       render 'new'
     end
