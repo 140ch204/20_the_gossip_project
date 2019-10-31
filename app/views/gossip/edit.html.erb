@@ -19,7 +19,7 @@
           <%= label_tag 'Le titre' %>
           </div>
           <div class="col-3">
-          <%= text_field_tag 'gossip_title', value = @gossip.title, options = {style:"height:30px;width:300px"} %>
+          <%= text_field_tag 'gossip_title', value = @gossip.title, options = {style:"width:100%"} %>
           </div>
         </div>     
         <br />
@@ -28,7 +28,7 @@
             <%= label_tag 'Dis nous tout' %>
           </div>
           <div class="col-3">
-            <%= text_field_tag 'gossip_content', value = @gossip.content, options = {style:"height:120px;width:300px;vertical-align:text-top"}%>
+            <%= text_area_tag 'gossip_content', value = @gossip.content, options = {style:"min-height:120px;width:100%"}%>
             <br />
             <br />
             
@@ -39,7 +39,7 @@
         <br />
 
       <% end %>
-      
+
       <div style="text-align: center">
       <%= form_tag gossip_path(@gossip.id), method: "delete" do %>
         <%= submit_tag "Supprimer", class: 'btn btn-primary'%>

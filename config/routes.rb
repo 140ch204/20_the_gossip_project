@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   root 'gossip#index'
+  resources :sessions, only: [:new, :create, :destroy]
   resources :gossip do
   	resources :comment
   end

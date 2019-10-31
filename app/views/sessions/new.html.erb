@@ -1,0 +1,43 @@
+<h1 class="my-4" style="text-align: center" >Se connecter</h1>
+<br>
+
+  <% if @gossip !=nil%>
+  <div class="card bg-light text-danger">
+    <% @gossip.errors.each do |attr, msg|  %>
+      <%= msg %><br />
+    <% end %>
+  </div>
+<% end %>
+
+<div class="container">
+
+  <%= form_tag url_for(action: 'create'), method: "post" do %>
+    <input type="hidden" name="authenticity_token" value= <%= form_authenticity_token %> >
+    <br />
+    <div class="row justify-content-center align-self-center mx-5">
+      <div class="col-3">
+      <%= label_tag 'Email :' %>
+      </div>
+      <div class="col-3">
+      <%= text_field_tag 'user_email', value = nil, options = {style:"width:300px"} %>
+      </div>
+    </div>     
+    <br />
+    <div class="row justify-content-center align-self-center mx-5">
+      <div class="col-3">
+        <%= label_tag 'Mot de passe' %>
+      </div>
+      <div class="col-3">
+        <%= password_field_tag 'user_pwd', value = nil, options = {style:"width:300px"}%>
+        <br />
+        <br />
+        
+        <%= submit_tag "S'enregistrer", class: 'btn btn-primary'  %>
+      </div>
+      
+    </div>
+    <br />
+
+  <% end %>
+</div>
+

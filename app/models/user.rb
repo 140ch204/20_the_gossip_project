@@ -7,9 +7,9 @@ class User < ApplicationRecord
 	has_many :comments
   has_many :likes
   
+  has_secure_password
 
 	validates :first_name, presence:  {message: "Merci de saisir ton prénom ?"}
-
 	validates :last_name, presence:  {message: "Merci de saisir ton nom ?"}
 
 	validates :description, presence:  {message: "Merci de saisir une description ?"}

@@ -1,0 +1,102 @@
+<h1 class="my-4" style="text-align: center" >S'enregistrer</h1>
+<br>
+
+  <% if @gossip !=nil%>
+  <div class="card bg-light text-danger">
+    <% @gossip.errors.each do |attr, msg|  %>
+      <%= msg %><br />
+    <% end %>
+  </div>
+<% end %>
+
+<div class="container">
+
+  <%= form_tag url_for(action: 'create'), method: "post" do %>
+    <input type="hidden" name="authenticity_token" value= <%= form_authenticity_token %> >
+    <br />
+
+    <div class="row justify-content-center align-self-center mx-5">
+      <div class="col-3">
+        <%= label_tag 'Prénom :' %>
+      </div>
+      <div class="col-3">
+        <%= text_field_tag 'first_name', value = nil, options = {style:"width:300px"} %>
+      </div>
+    </div>     
+    <br />
+
+    <div class="row justify-content-center align-self-center mx-5">
+      <div class="col-3">
+        <%= label_tag 'Nom :' %>
+      </div>
+      <div class="col-3">
+        <%= text_field_tag 'last_name', value = nil, options = {style:"width:300px"} %>
+      </div>
+    </div>     
+    <br />
+
+    <div class="row justify-content-center align-self-center mx-5">
+      <div class="col-3">
+        <%= label_tag 'Email :' %>
+      </div>
+      <div class="col-3">
+        <%= text_field_tag 'email', value = nil, options = {style:"width:300px"} %>
+      </div>
+    </div>     
+    <br />
+    
+    <div class="row justify-content-center align-self-center mx-5">
+      <div class="col-3">
+        <%= label_tag 'Age :' %>
+      </div>
+      <div class="col-3">
+        <%= text_field_tag 'age', value = nil, options = {style:"width:300px"} %>
+      </div>
+    </div>     
+    <br />
+    
+    <div class="row justify-content-center align-self-center mx-5">
+      <div class="col-3">
+        <%= label_tag 'Ville :' %>
+      </div>
+      <div class="col-3">
+        <%= select_tag 'city_name', options_for_select(City.all.map{|city| city.name}), options = {style:"width:300px"} %>
+      </div>
+    </div>     
+    <br />
+
+    <div class="row justify-content-center align-self-center mx-5">
+      <div class="col-3">
+        <%= label_tag 'Description :' %>
+      </div>
+      <div class="col-3">
+        <%= text_area_tag 'description', value = nil, options = {style:"width:300px"} %>
+      </div>
+    </div>     
+    <br />
+
+    <div class="row justify-content-center align-self-center mx-5">
+      <div class="col-3">
+        <%= label_tag 'Mot de passe :' %>
+      </div>
+      <div class="col-3">
+        <%= password_field_tag 'password', value = nil, options = {style:"width:300px"} %>
+      </div>
+    </div>     
+    <br />
+
+    <div class="row justify-content-center align-self-center mx-5">
+      <div class="col-3">
+        <%= label_tag 'Confirmation du mot de passe :' %>
+      </div>
+      <div class="col-3">
+        <%= password_field_tag 'password_confirmation', value = nil, options = {style:"width:300px"} %>
+        <br />
+        <br />
+        <%= submit_tag "S'enregistrer", class: 'btn btn-primary'  %>
+      </div>
+    </div>     
+    <br />
+    
+  <% end %>
+</div>

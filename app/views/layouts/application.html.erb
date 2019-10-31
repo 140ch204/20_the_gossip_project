@@ -28,9 +28,23 @@
             <a class="nav-link" <%= link_to "Team", team_index_path() %></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" <%= link_to "contact", contact_index_path() %></a>
+            <a class="nav-link" <%= link_to "Contact", contact_index_path() %></a>
+          </li>
+
+          <li>
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                S'enregistrer/Se connecter
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" <%= link_to "S'enregistrer", new_author_path() %></a>
+                <a class="dropdown-item" <%= link_to "Connexion", new_session_path() %></a>
+              </div>
+            </div>
           </li>
         </ul>
+
+        
       </div>
     </div>
     </nav>

@@ -48,7 +48,7 @@
   <input type="hidden" name="gossip_id" value= @gossip.id >     
   <br>
   <%= label_tag 'Ajouter un commentaire :' %><br>
-  <%= text_field_tag 'comment_content', value = nil, options = {style:"height:120px;width:300px;vertical-align:text-top"}%>
+  <%= text_area_tag 'comment_content', value = nil, options = {style:"height:120px;width:300px;vertical-align:text-top"}%>
   <br><br>
   <%= submit_tag "Valider", class: 'btn btn-primary align-self-center '  %>
 <% end %>
