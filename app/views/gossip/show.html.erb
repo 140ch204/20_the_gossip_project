@@ -5,13 +5,17 @@
 <h2> Contenu </h2><br>
 <p> <%= @gossip.content %> </p>
 
-<a class="btn btn-primary" <%= link_to "Editer", edit_gossip_path(@gossip.id)%></a>
-<br>
-<br>
+<%if logged_in?%>
+  <% if @gossip.user_id == current_user.id %>
+    <a class="btn btn-primary" <%= link_to "Editer", edit_gossip_path(@gossip.id)%></a>
+    <br>
+    <br>
 
-<%= form_tag gossip_path(@gossip.id), method: "delete" do %>
-  <%= submit_tag "Supprimer", class: 'btn btn-primary'%>
-<% end %>
+    <%= form_tag gossip_path(@gossip.id), method: "delete" do %>
+      <%= submit_tag "Supprimer", class: 'btn btn-primary'%>
+    <% end %>
+  <%end%>
+<%end%>
 
 <br>
 <br>
@@ -38,31 +42,37 @@
 
 
 <% if @comments.size == 0 %>
-<h2> Un premier commentaire ? pour le gossip N°<%= @gossip.id%></h2>
+  <h3> Un premier commentaire ? pour le gossip N°<%= @gossip.id%></h3>
 <% else %>
-<h2> <%=@comments.size%> commentaires pour ce Gossip N°<%= @gossip.id%></h2>
+  <h3> <%=@comments.size%> commentaires pour ce Gossip N°<%= @gossip.id%></h3>
 <%end%>
 
-<%= form_tag gossip_comment_index_path(@gossip.id), method: "post" do %>
-  <input type="hidden" name="authenticity_token" value= <%= form_authenticity_token %> >
-  <input type="hidden" name="gossip_id" value= @gossip.id >     
-  <br>
-  <%= label_tag 'Ajouter un commentaire :' %><br>
-  <%= text_area_tag 'comment_content', value = nil, options = {style:"height:120px;width:300px;vertical-align:text-top"}%>
-  <br><br>
-  <%= submit_tag "Valider", class: 'btn btn-primary align-self-center '  %>
+<%if logged_in?%>
+  <%= form_tag gossip_comment_index_path(@gossip.id), method: "post" do %>
+    <input type="hidden" name="authenticity_token" value= <%= form_authenticity_token %> >
+    <input type="hidden" name="gossip_id" value= @gossip.id >     
+    <br>
+    <%= label_tag 'Ajouter un commentaire :' %><br>
+    <%= text_area_tag 'comment_content', value = nil, options = {style:"height:120px;width:300px;vertical-align:text-top"}%>
+    <br><br>
+    <%= submit_tag "Valider", class: 'btn btn-primary align-self-center '  %>
+  <% end %>
 <% end %>
 
 <%n=0%>
 <%@comments.each do |comment|%>
   <%n+=1%>
   <br>
-  <h3> Commentaire N°<%=n%> : </h3>
-  <p> <%=comment.content%> </p>
-  <p> Rédigé par : <%= link_to "#{User.find(comment.user_id).first_name} #{User.find(comment.user_id).last_name}", author_path(comment.user_id), :class =>"text-muted p-0"%></p>
-  <a class="btn btn-primary" <%= link_to "Editer", edit_gossip_comment_path(@gossip.id,comment.id)%></a>
-  <p> <%= form_tag gossip_comment_path(@gossip.id,comment.id), method: "delete" do %>
-    <%= submit_tag "Supprimer", class: 'btn btn-primary'%></p>
-  <% end %>
-
+  
+  <p> <%= link_to "#{User.find(comment.user_id).first_name} #{User.find(comment.user_id).last_name}", author_path(comment.user_id), :class =>"text-muted p-0"%> : <%=comment.content%> </p>
+  <%if logged_in?%>
+    <% if comment.user_id == current_user.id %>
+      <a class="btn btn-primary" <%= link_to "Editer", edit_gossip_comment_path(@gossip.id,comment.id)%></a>
+      <p>
+      <%= form_tag gossip_comment_path(@gossip.id,comment.id), method: "delete" do %></p>
+        <p>
+        <%= submit_tag "Supprimer", class: 'btn btn-primary'%></p>
+      <% end %>
+    <%end%>
+  <%end%>
 <%end%>

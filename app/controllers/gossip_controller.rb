@@ -13,7 +13,7 @@ class GossipController < ApplicationController
     # Méthode qui créé un potin à partir du contenu du formulaire de new.html.erb, soumis par l'utilisateur
     # pour info, le contenu de ce formulaire sera accessible dans le hash params (ton meilleur pote)
     # Une fois la création faite, on redirige généralement vers la méthode show (pour afficher le potin créé)
-    @gossip = Gossip.new(user_id: User.all.sample.id, title: params[:gossip_title], content: params[:gossip_content])
+    @gossip = Gossip.new(user_id: current_user.id, title: params[:gossip_title], content: params[:gossip_content])
     puts "mes params = ", params
 
     if @gossip.save
